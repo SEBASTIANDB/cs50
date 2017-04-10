@@ -1,0 +1,4 @@
+0. anything from 3 x 3 to 9 x 9(since DIM_MIN = 3 and DIM_MAX = 9)
+1. It uses a text file to represent the board.(log.txt)
+2. greet();
+3. init(); draw(); move(); and won();
