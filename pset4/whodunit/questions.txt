@@ -1,0 +1,33 @@
+1.  What’s stdint.h?
+It's a header that defines a bunch of aliases with specific width requirements, along with macros to determine their limits and macro functions to create values of these types.
+2.  What’s the point of using uint8_t, uint32_t, int32_t, and uint16_t in a program? 
+It tells the program that you want to use data in a certain (specific) way.
+	uint8_t means an integer that is exactly 8 bits wide.
+3.  How many bytes is a BYTE, a DWORD, a LONG, and a WORD, respectively?
+    8bits  BYTE;
+    32 bits DWORD;
+    32bits  LONG;
+    16bits WORD;
+4.  What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? Leading bytes used to identify file formats (with high probability) are generally called "magic numbers."
+    The first two bytes in a bmp is a WORD (and denotes bfType), which determines the file type.
+    In order for it to be a bitmap, it has to be set to the signature word BM.
+5.  What’s the difference between bfSize and biSize?
+    bfsize = specifies size of the bitmap in bytes.
+    biSize= specifies the size if the entire structure in bytes.
+6.  What does it mean if biHeight is negative?
+    if biHeight is negative, the bitmap is a top down "device-independent bitmap"(DBI). And the origin is in this case the top-left corner.
+    (if biHeight is positive, the origin is the bottom-left corner).
+7.  What field in BITMAPINFOHEADER specifies the BMP’s color depth (i.e., bits per pixel)?
+    WORD biBitCount; is what determines the number of bits that define every single pixel and the max number of colors for the bitmap.
+8.  Why might fopen return NULL in lines 24 and 32 of copy.c?
+    If it can't find the file, it will return NULL.
+9.  Why is the third argument to fread always 1 in our code?
+    I think because it's reading the file one struct at a time.(we only want one struct at a time)
+    1 block of size sizeof(RGBTRIPLE) (3 bytes) will be read from inptr and written back into &triple.
+    
+10. What value does line 65 of copy.c assign to padding if bi.biWidth is 3?
+    it should be 3.
+11. What does fseek do?
+    "sets the file position of the stream to the given offset."(source:tutorialspoint.com). basically moves to a given location in a file.
+12. What is SEEK_CUR?
+    SEEK_CUR is the current position of the file pointer.(it can be either SEEK_CUR, SEEK_SET or SEEK_END to point out where the offset is relative to, used in fseek for example).
