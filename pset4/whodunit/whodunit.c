@@ -60,7 +60,8 @@ int main(int argc, char* argv[])
 
             // read RGB triple from infile
             fread(&triple, sizeof(RGBTRIPLE), 1, in);
-            if(triple.rgbtRed == 0xff){
+            if(triple.rgbtRed == 0xff){//if the byte for red is all ones.
+                
                 triple.rgbtRed = 0xff;
                 triple.rgbtGreen = 0xff;
                 triple.rgbtBlue = 0xff;
