@@ -1,0 +1,14 @@
+0.  It's the longest word in the english dictionary, said to mean a certain lung disease that's caused by inhalation of very fine silica dust.
+1.  getrusage() returns resource usage measures for a processes or a single process.(CPU time, used memory)
+2.  rusage() contains 16 members.
+3.  Because if you did, you'd be copying a lot of data, which is not necesary and takes more time instead of just using pointers.(by reference)
+4.  Main goes over each word until the end of the file is reached.
+    the for loop keep getting the next char until end of file.(gets first char; until EOF; gets next char)
+     If any non-alphabetical chars or apostrophes are found, they are not checked because they are not added to the word that will be checked.
+     If alphabetical chars are found, they add it to the word and do index++
+     if there's any strings that exceed the max possible length,(go over the remainder of the word while it's not EOF and not yet a new word, and reset index to zero).
+     If numbers are detected, the same thing happens.(consume the remainder of the word while it's numbers and it's not EOF and index reset to zero)
+     if a whole word is found, which s when index is not zero but higher, then terminate the current word and check it for spelling.
+     (the time it takes to spellcheck is also benchmarked)
+5.  fsncanf ignores whitespaces, which we need to check if the word has ended.(fgetc goes over every char and so is more exact, while fscanf goes over every word)
+6.  Because they point to a constant character, the value of the parameter can't be changed, so basically the words can't be changed by load and check because they're declared(?) as constants in the function.
